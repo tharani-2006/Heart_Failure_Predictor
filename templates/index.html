@@ -9,7 +9,7 @@
 <body>
     <div class="main-container">
         <h1>Heart Failure Predictor</h1>
-        <form action="/predict" method="POST" class="form-container" onsubmit="showPopup(event)">
+        <form action="/predict" method="POST" class="form-container">
             <div>
                 <label for="time">Time (e.g., 50):</label>
                 <input type="number" step="0.1" id="time" name="time" placeholder="Enter time (e.g., 50)" required>
@@ -29,6 +29,7 @@
             <p id="popup-text">Prediction result will appear here.</p>
             <button onclick="closePopup()">Close</button>
         </div>
+
         <div class="sample-inputs">
             <h2>Sample Inputs and Explanations:</h2>
             <p>1. <strong>Time</strong> (e.g., 50): The follow-up period in days.</p>
@@ -49,5 +50,11 @@
         </footer>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        const predictionResult = "{{ prediction_text }}"; // Flask will render this dynamically
+        if (predictionResult) {
+            showPopup(predictionResult); // Call the function with the dynamic result
+        }
+    </script>
 </body>
 </html>

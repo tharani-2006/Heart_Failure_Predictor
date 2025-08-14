@@ -1,8 +1,7 @@
-function showPopup(event) {
-    event.preventDefault();
+function showPopup(prediction) {
     const popup = document.getElementById('popup');
     const popupText = document.getElementById('popup-text');
-    popupText.textContent = "The patient is not at risk of heart failure."; // Replace with dynamic result
+    popupText.textContent = prediction; // Use the dynamic result passed from the server
     popup.style.display = 'block';
 }
 
