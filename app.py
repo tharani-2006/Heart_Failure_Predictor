@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load the trained model (ensure the model is saved as 'model.pkl')
+# Load the trained model
 model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
@@ -31,7 +31,7 @@ def predict():
 
         return render_template('index.html', prediction_text=result)
     except Exception as e:
-        return render_template('index.html', prediction_text=f"Error: {str(e)}")
+        return render_template('index.html', prediction_text="Error occurred: " + str(e))
 
 if __name__ == '__main__':
     app.run(debug=True)

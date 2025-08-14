@@ -4,80 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heart Failure Predictor</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-        input {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #333;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
+    <div class="main-container">
         <h1>Heart Failure Predictor</h1>
-        <form action="/predict" method="POST">
-            <label for="time">Time (e.g., 50):</label>
-            <input type="number" step="0.1" id="time" name="time" placeholder="Enter time (e.g., 50)" required>
-
-            <label for="ejection_fraction">Ejection Fraction (e.g., 38):</label>
-            <input type="number" step="0.1" id="ejection_fraction" name="ejection_fraction" placeholder="Enter ejection fraction (e.g., 38)" required>
-
-            <label for="serum_creatinine">Serum Creatinine (e.g., 1.2):</label>
-            <input type="number" step="0.01" id="serum_creatinine" name="serum_creatinine" placeholder="Enter serum creatinine (e.g., 1.2)" required>
-
-            <button type="submit">Predict</button>
+        <form action="/predict" method="POST" class="form-container" onsubmit="showPopup(event)">
+            <div>
+                <label for="time">Time (e.g., 50):</label>
+                <input type="number" step="0.1" id="time" name="time" placeholder="Enter time (e.g., 50)" required>
+            </div>
+            <div>
+                <label for="ejection_fraction">Ejection Fraction (e.g., 38):</label>
+                <input type="number" step="0.1" id="ejection_fraction" name="ejection_fraction" placeholder="Enter ejection fraction (e.g., 38)" required>
+            </div>
+            <div>
+                <label for="serum_creatinine">Serum Creatinine (e.g., 1.2):</label>
+                <input type="number" step="0.01" id="serum_creatinine" name="serum_creatinine" placeholder="Enter serum creatinine (e.g., 1.2)" required>
+            </div>
+            <button type="submit" class="submit-btn">Predict</button>
         </form>
-        {% if prediction_text %}
-        <div class="result">
-            <p>{{ prediction_text }}</p>
+
+        <div class="popup-container" id="popup">
+            <p id="popup-text">Prediction result will appear here.</p>
+            <button onclick="closePopup()">Close</button>
         </div>
-        {% endif %}
+        <div class="sample-inputs">
+            <h2>Sample Inputs and Explanations:</h2>
+            <p>1. <strong>Time</strong> (e.g., 50): The follow-up period in days.</p>
+            <p>2. <strong>Ejection Fraction</strong> (e.g., 38): The percentage of blood leaving the heart during each contraction.</p>
+            <p>3. <strong>Serum Creatinine</strong> (e.g., 1.2): The level of creatinine in the blood (mg/dL).</p>
+
+            <h3>Example Sample Inputs:</h3>
+            <ul>
+                <li>Sample 1: Time=50, Ejection Fraction=38, Serum Creatinine=1.2</li>
+                <li>Sample 2: Time=100, Ejection Fraction=60, Serum Creatinine=0.8</li>
+                <li>Sample 3: Time=20, Ejection Fraction=25, Serum Creatinine=2.5</li>
+                <li>Sample 4: Time=70, Ejection Fraction=45, Serum Creatinine=1.0</li>
+                <li>Sample 5: Time=30, Ejection Fraction=35, Serum Creatinine=1.8</li>
+            </ul>
+        </div>
+        <footer>
+            <p>Created with ❤️ by <a href="#">THARANI PRAKASH P</a></p>
+        </footer>
     </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

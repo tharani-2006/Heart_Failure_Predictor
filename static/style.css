@@ -1,0 +1,151 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.main-container {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-container label {
+    font-size: 1rem;
+    color: #f9f9f9;
+    margin-bottom: 5px;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-container input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.submit-btn {
+    padding: 15px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(67, 206, 162, 0.5);
+}
+
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+}
+
+.popup-container p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.popup-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #ff7e5f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-container button:hover {
+    background: #feb47b;
+}
+
+.sample-inputs {
+    margin-top: 40px;
+    color: #f9f9f9;
+}
+
+.sample-inputs h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #43cea2;
+}
+
+.sample-inputs ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sample-inputs ul li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+footer a {
+    color: #43cea2;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
