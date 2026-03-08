@@ -128,3 +128,121 @@ Heart_Failure_Predictor/
 ├── .gitignore               # Files to ignore in Git
 └── README.md                # Project documentation
 ```
+
+## ⚙️ Installation & Setup
+
+To run this project locally, follow these steps:
+
+### Prerequisites
+
+Ensure you have Python and Git installed on your system.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/Heart_Failure_Predictor.git
+cd Heart_Failure_Predictor
+```
+
+### 2. Create a Virtual Environment
+
+It is highly recommended to use a virtual environment to avoid dependency conflicts.
+
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# Linux/Mac
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## 🚀 Running the Application
+
+Once the environment is set up, you can start the Flask development server:
+
+```bash
+python app.py
+```
+
+After running the command, open your browser and navigate to:
+[http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+
+### Inputting Data
+
+Fill in the three fields:
+- **Time (Days)**: Enter the follow-up period.
+- **Ejection Fraction (%)**: Enter the percentage value.
+- **Serum Creatinine (mg/dL)**: Enter the creatinine level.
+
+Click **"Predict"** to see the result!
+
+## 📉 Exploratory Data Analysis (EDA)
+
+The `heart_failure_prediction.ipynb` notebook contains extensive analysis. Some key findings:
+
+- **Correlation Matrix**: Revealed that `time`, `ejection_fraction`, and `serum_creatinine` have the strongest correlation with survival.
+- **Age Distribution**: Most patients in the risk category are aged between 60 and 80.
+- **Survival Analysis**: Patients with low ejection fraction (< 30%) have a significantly higher risk of a death event.
+- ** creatinine Levels**: High serum creatinine levels (> 1.5) are strongly associated with heart failure risk.
+
+The notebook uses libraries like `Seaborn` and `Plotly` to generate interactive visualizations that help justify the inclusion of specific features in the model.
+
+## 🌐 Deployment
+
+The project includes a `Procfile`, making it ready for deployment on platforms like **Heroku** or **Render**.
+
+### Steps for Heroku Deployment
+
+1. Login to Heroku CLI: `heroku login`
+2. Create an app: `heroku create heart-failure-predictor-app`
+3. Push the code: `git push heroku main`
+
+## 🔮 Future Improvements
+
+- **Algorithm Comparison**: Implement and compare results with Random Forest, XGBoost, and SVM.
+- **Full Feature Version**: Create an advanced mode that accepts all 12 input features.
+- **Data Persistence**: Add a database to store prediction history for clinical review.
+- **Explainability (XAI)**: Integrate SHAP or LIME to explain individual predictions to medical staff.
+- **Mobile Support**: Enhance the CSS for a better mobile-first user experience.
+- **API Endpoints**: Expose the model as a REST API for integration with other hospital systems.
+
+## 🤝 Contributing
+
+Contributions are welcome! If you'd like to improve the project, please follow these steps:
+
+1. Fork the Project.
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the Branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## 📬 Contact
+
+**Project Creator** - [Tharani](https://github.com/tharani-2006)
+Project Link: [https://github.com/tharani-2006/Heart_Failure_Predictor](https://github.com/tharani-2006/Heart_Failure_Predictor)
+
+---
+
+### Acknowledgments
+
+- Thanks to the UCI Machine Learning Repository for the Heart Failure Clinical Records Dataset.
+- This project was developed as part of a Machine Learning exploration portfolio.
+
+### Disclaimer
+
+*This application is for educational and demonstrative purposes only. It should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of a qualified healthcare provider with any questions you may have regarding a medical condition.*
+
+---
+
